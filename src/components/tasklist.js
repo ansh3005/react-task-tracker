@@ -1,24 +1,26 @@
-import React from "react";
-import Task from "./Task";
+import React from 'react';
 
-function TaskList({ tasks, onDelete, onToggle }) {
+function Tasklist({ tasks, toggleComplete, deleteTask }) {
   return (
-    <div>
-      {tasks.length === 0 ? (
-        <p>No tasks yet.</p>
-      ) : (
-        tasks.map((task, index) => (
-          <Task
-            key={index}
-            index={index}
-            task={task}
-            onDelete={onDelete}
-            onToggle={onToggle}
-          />
-        ))
-      )}
+    <div className="task-list">
+      {tasks.map((task) => (
+        <div key={task.id} className={`task-item ${task.completed ? 'completed' : ''}`}>
+          <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => toggleComplete(task.id)}
+            />
+            <span>{task.title}</span>
+          </div>
+          <span>{new Date(task.dueDate).toLocaleString()}</span>
+          <button className="delete-btn" onClick={() => deleteTask(task.id)}>
+            &#10006;
+          </button>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default TaskList;
+export default Tasklist;

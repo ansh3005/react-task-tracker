@@ -1,39 +1,99 @@
-.app {
-  max-width: 500px;
+
+body {
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.task-tracker {
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  width: 500px;
+  max-width: 90%;
   margin: 40px auto;
-  padding: 20px;
+  text-align: center;
+}
+
+.task-tracker h1 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #bb86fc;
+}
+
+.task-tracker input[type="text"],
+.task-tracker input[type="datetime-local"],
+.task-tracker input[type="email"],
+.task-tracker input.edit-task {
+  padding: 12px;
+  margin: 6px 0;
+  width: calc(100% - 24px);
+  border: 1px solid #333;
   border-radius: 8px;
-  background: #f3f3f3;
-  font-family: sans-serif;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  font-size: 1rem;
 }
 
-.input-group {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+.task-tracker input::placeholder {
+  color: #888;
 }
 
-input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-}
-
-button {
-  padding: 8px 12px;
-  background: #007bff;
-  color: white;
+.task-tracker button {
+  padding: 12px 24px;
+  margin-top: 10px;
+  background-color: #bb86fc;
   border: none;
+  border-radius: 8px;
+  color: #121212;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.task {
+.task-tracker button:hover {
+  background-color: #9a67ea;
+}
+
+.task-item {
+  background-color: #2a2a2a;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
 }
 
-.completed {
+.task-item.completed span {
   text-decoration: line-through;
-  color: green;
+  color: #888;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-item .edit-task {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  padding: 8px;
+  border-radius: 6px;
+  color: #e0e0e0;
+  width: 100%;
+}
+
+.task-item .delete-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.task-item .delete-btn:hover {
+  transform: scale(1.2);
 }
